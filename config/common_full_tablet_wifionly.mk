@@ -1,6 +1,8 @@
 # Inherit common OSR stuff
 $(call inherit-product, vendor/osr/config/common_full.mk)
 
+PRODUCT_PACKAGE_OVERLAYS += vendor/osr/overlay/common_tablets
+
 # Default ringtone
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.ringtone=CyanTone.ogg \
