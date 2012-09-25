@@ -119,6 +119,7 @@ PRODUCT_PACKAGES += \
     Camera \
     Development \
     LatinIME \
+    ROMControl \
     SpareParts \
     Superuser \
     Superuser.apk \
