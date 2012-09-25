@@ -117,13 +117,18 @@ include vendor/osr/config/themes_common.mk
 # Required OSR packages
 PRODUCT_PACKAGES += \
     Camera \
+    ContactsWidgets \
     Development \
+    FileExplorer \
     LatinIME \
+    Notes \
     ROMControl \
+    SoundRecorder2 \
     SpareParts \
     Superuser \
     Superuser.apk \
-    su
+    su \
+    Wallpapers
 
 # Optional OSR packages
 PRODUCT_PACKAGES += \
