@@ -15,4 +15,5 @@ add_lunch_combo osr_i9100-userdebug
 add_lunch_combo osr_i9300-userdebug
 add_lunch_combo osr_mk802-userdebug
 add_lunch_combo osr_n7000-userdebug
+add_lunch_combo osr_tf201-userdebug
 
