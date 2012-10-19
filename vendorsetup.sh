@@ -5,7 +5,7 @@ if [ ! -d  "$VENDOR/proprietary" ]
 then
    vendor/osr/./get-prebuilts
 else
-   echo " Propetarios descargados anteriromente"
+   echo " Propetarios descargados anteriormente"
 fi
 
 # Devices supported
