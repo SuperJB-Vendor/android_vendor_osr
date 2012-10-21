@@ -106,7 +106,6 @@ java -Xmx1024m \
 	$REPACK/update.zip $OUTFILE
 echo
 printf "Cleaning up..."
-rm -rf $REPACK
 echo
 
 # Create a md5 checksum image of the repacked package
