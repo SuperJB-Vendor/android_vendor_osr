@@ -2,11 +2,13 @@
 #
 # Print startup info
 #
-L="log -p i -t cm"
+L="log -p i -t SuperTeam"
 
-$L "Welcome to Android `getprop ro.build.version.release` / SuperTeam-`getprop ro.osr.version`";
-$L "                                                _ ";
-$L " __ __ _ ___  _ _  __  ___  __ _ _  _  _  __  __))";
-$L "((_ \\(/'((_( ((\\( ((_)((_( (('((\\( ((\`1( ((_)((_( ";
-$L "     ))                 _))";
-$L " ";
+$L "Welcome to Android `getprop ro.build.version.release` / `getprop ro.osr.version`";
+
+$L "________                          ________    _________            ";            
+$L "__  ___/___  ________________________  __/______  ____ \______ ___ "; 
+$L "_____ \_  / / /__  __ \  _ \_  ___/_  /  _  _ \  / __ `/_  __ `__ \";
+$L "____/ // /_/ /__  /_/ /  __/  /   _  /   /  __/ / /_/ /_  / / / / /";
+$L "/____/ \__,_/ _  .___/\___//_/    /_/    \___/\ \__,_/ /_/ /_/ /_/ ";
+$L "              /_/                              \____/              ";
