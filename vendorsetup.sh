@@ -19,4 +19,5 @@ add_lunch_combo osr_mk802-userdebug
 add_lunch_combo osr_n7000-userdebug
 add_lunch_combo osr_pyramid-userdebug
 add_lunch_combo osr_tf201-userdebug
+add_lunch_combo osr_bravo-eng
 
