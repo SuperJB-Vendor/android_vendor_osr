@@ -4,11 +4,18 @@
 # cyanogen
 #
 
+. mensajes.sh
 OUT_TARGET_HOST=linux-x86
 export VENDOR=vendor/osr
 MODS=$VENDOR/mods
 OTAPACKAGE=$OUT/$PRODUCT_ROM_FILE-ota.zip
+REPACK=$OUT/repack.d
+REPACKOTA=$REPACK/ota
 ROMPACKAGE=$OUT/$PRODUCT_ROM_FILE.zip
+msgInfo " "
+msgInfo "Working for $ALIAS"
+msgInfo " "
+
 OUT_TARGET_HOST=`uname -a | grep Darwin`
 if [ -z "$OUT_TARGET_HOST" ]
 then
@@ -38,7 +45,7 @@ QUIET=-q
 DELETE_BINS="applypatch applypatch_static check_prereq recovery updater"
 
 REPACK=$OUT/repack.d
-printf "Sanitizing environment..."
+msgWarn "Sanitizing environment..."
 rm -rf $REPACK
 mkdir -p $REPACK
 echo
@@ -49,8 +56,12 @@ mkdir $REPACK/ota
 (
 cd $REPACK/ota
 printf "Unpacking $OTAPACKAGE..."
+echo " "
 unzip $QUIET $OTAPACKAGE
 echo
+
+# Copiado de archivos comunes
+    cp -rf $ANDROID_BUILD_TOP/$MODS/common/* $REPACKOTA/
 
 # Move all apks to the same directory so xargs can
 # use also with framework-res.apk. This allow process
@@ -82,6 +93,15 @@ $SED -i \
 # Delete unnecessary binaries
 ( cd $REPACK/ota/system/bin; echo $DELETE_BINS | xargs rm -f; )
 
+# Copiado de archivos especificos del dispositivo
+    cp -r $ANDROID_BUILD_TOP/$MODS/terminales/$ALIAS/* $REPACKOTA/
+
+# Ejecuta si existe personalizaciones específicas del dispositivo.
+    if [ -f $ANDROID_BUILD_TOP/$MODS/terminales/$ALIAS/personalizar.sh ]; then
+    	$ANDROID_BUILD_TOP/$MODS/terminales/$ALIAS/personalizar.sh $REPACKOTA
+    	rm $REPACKOTA/personalizar.sh
+    fi
+
 # No need for recovery
 rm -rf $REPACK/ota/recovery
 
@@ -92,13 +112,14 @@ rm -rf $REPACK/ota/recovery
 # Determine what to name the new signed package
 MODVERSION=`sed -n -e'/ro\.osr\.version/s/^.*=//p' $REPACK/ota/system/build.prop`
 OUTFILE=$OUT/$MODVERSION.zip
-echo MODVERSION: $MODVERSION
+msgInfo MODVERSION:
+echo " "
+msgOK $MODVERSION
 
 # Pack it up and sign
-printf "Zipping package..."
+msgWarn "Zipping package..."
 ( cd $REPACK/ota; zip $QUIET -r $REPACK/update.zip . )
-echo
-printf "Signing package..."
+msgWarn "Signing package..."
 SECURITYDIR=$ANDROID_BUILD_TOP/build/target/product/security
 java -Xmx1024m \
 	-jar $OUT/../../../host/$OUT_TARGET_HOST/framework/signapk.jar \
@@ -114,7 +135,8 @@ img=`basename $OUTFILE`
 cd `dirname $OUTFILE`
 $MD5 $img >$img.md5sum
 echo
-echo "Package complete: $OUTFILE"
+msgOK "Package complete:"
+echo "$OUTFILE"
 cat $img.md5sum
 echo
 )
