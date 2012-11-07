@@ -35,6 +35,10 @@ msgWarn(){
   $ECHO $BLUE"$1"$ENDCOLOR
 }
 
+msgWarn1(){
+  $ECHO $BLUEs"$1"$ENDCOLOR
+}
+
 msgOK(){
   $ECHO $GREEN"$1"$ENDCOLOR
 }

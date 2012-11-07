@@ -90,10 +90,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/osr/prebuilt/common/bin/modelid_cfg.sh:system/bin/modelid_cfg.sh
 
+# Terminal and Root files
 PRODUCT_COPY_FILES +=  \
     vendor/osr/proprietary/Term.apk:system/app/Term.apk \
     vendor/osr/proprietary/lib/armeabi/libjackpal-androidterm4.so:system/lib/libjackpal-androidterm4.so \
-    vendor/osr/prebuilt/common/apps/Superuser.apk:system/app/Superuser.apk
+    vendor/osr/prebuilt/common/apps/SuperSU.apk:system/app/SuperSU.apk \
+    vendor/osr/prebuilt/common/xbin/su:system/xbin/su
 
 # Bring in camera effects
 PRODUCT_COPY_FILES +=  \
@@ -125,9 +127,6 @@ PRODUCT_PACKAGES += \
     ROMControl \
     SoundRecorder2 \
     SpareParts \
-    Superuser \
-    Superuser.apk \
-    su \
     Wallpapers
 
 # Optional OSR packages
