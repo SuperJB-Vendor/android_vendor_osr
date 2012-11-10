@@ -13,4 +13,21 @@ To initialize your local repository using the SuperJB trees, use a command like 
 
 Then to sync up:
 
-    repo sync
+    repo sync -jX
+
+Load build environment:
+
+    . build/envsetup.sh
+
+Then to sync up:
+
+    lunch
+    [select the device number you want to compile]
+
+or if you know the device identifier, you can directly (you can found it on vendorsetup.sh file):
+
+    lunch [device_id]
+
+NOTE: If dependencies are needed, they must be automatically added to local_manifest.xml and downloaded.
+
+    make -jX
