@@ -11,15 +11,15 @@ To initialize your local repository using the SuperJB trees, use a command like 
 
     repo init -u git://github.com/SuperJB/android.git -b jellybean
 
-Then to sync up:
+Then run this to download the sources:
 
-    repo sync -jX
+    repo sync -j8 -c
 
 Load build environment:
 
     . build/envsetup.sh
 
-Then to sync up:
+Select the device to build:
 
     lunch
     [select the device number you want to compile]
@@ -28,6 +28,8 @@ or if you know the device identifier, you can directly (you can found it on vend
 
     lunch [device_id]
 
-NOTE: If dependencies are needed, they must be automatically added to local_manifest.xml and downloaded.
+NOTE: If dependencies are needed, they will be automatically added to your local_manifest.xml and downloaded.
 
-    make -jX
+Then build the rom with:
+
+    mka bacon
