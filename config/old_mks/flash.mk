@@ -1,6 +1,3 @@
-# Inherit Camera stuff
-$(call inherit-product, vendor/osr/config/camera.mk
-
 PRODUCT_PACKAGES += \
     Torch
 

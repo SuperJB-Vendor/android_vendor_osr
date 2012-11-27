@@ -1,3 +1,6 @@
+# Inherit telephony
+$(call inherit-product, vendor/osr/config/base_telephony.mk
+
 # CDMA APN list
 PRODUCT_COPY_FILES += \
     vendor/osr/prebuilt/common/etc/apns-conf-cdma.xml:system/etc/apns-conf.xml

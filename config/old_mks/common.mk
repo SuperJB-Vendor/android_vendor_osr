@@ -80,6 +80,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/osr/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 
+# Compcache/Zram support
+PRODUCT_COPY_FILES += \
+    vendor/osr/prebuilt/common/etc/init.local.rc:system/etc/init.local.rc \
+    vendor/osr/prebuilt/common/bin/compcache:system/bin/compcache \
+    vendor/osr/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache
+
 # Nam configuration script
 PRODUCT_COPY_FILES += \
     vendor/osr/prebuilt/common/bin/modelid_cfg.sh:system/bin/modelid_cfg.sh
@@ -89,8 +95,12 @@ PRODUCT_COPY_FILES +=  \
     vendor/osr/proprietary/Term.apk:system/app/Term.apk \
     vendor/osr/proprietary/lib/armeabi/libjackpal-androidterm4.so:system/lib/libjackpal-androidterm4.so \
     vendor/osr/prebuilt/common/apps/SuperSU.apk:system/app/SuperSU.apk \
-    vendor/osr/prebuilt/common/xbin/su:system/xbin/su  \
-    vendor/osr/prebuilt/common/xbin/su:system/bin/su
+    vendor/osr/prebuilt/common/xbin/su:system/xbin/su
+
+# Bring in camera effects
+PRODUCT_COPY_FILES +=  \
+    vendor/osr/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
+    vendor/osr/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -103,8 +113,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/osr/prebuilt/common/etc/mkshrc:system/etc/mkshrc
 
+# T-Mobile theme engine
+include vendor/osr/config/themes_common.mk
+
 # Required OSR packages
 PRODUCT_PACKAGES += \
+    Camera \
     ContactsWidgets \
     Development \
     FileExplorer \
@@ -114,6 +128,13 @@ PRODUCT_PACKAGES += \
     SoundRecorder2 \
     SpareParts \
     Wallpapers
+
+# Optional OSR packages
+PRODUCT_PACKAGES += \
+    VideoEditor \
+    VoiceDialer \
+    SoundRecorder \
+    Basic
 
 # Custom C packages
 PRODUCT_PACKAGES += \
