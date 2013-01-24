@@ -61,7 +61,7 @@ unzip $QUIET $OTAPACKAGE
 echo
 
 # Copiado de archivos comunes
-    cp -rf $ANDROID_BUILD_TOP/$MODS/common/* $REPACKOTA/
+[ -d $ANDROID_BUILD_TOP/$MODS/common/ ] && cp -rf $ANDROID_BUILD_TOP/$MODS/common/* $REPACKOTA/
 
 # Move all apks to the same directory so xargs can
 # use also with framework-res.apk. This allow process
