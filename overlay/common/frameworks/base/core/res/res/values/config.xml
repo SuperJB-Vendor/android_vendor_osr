@@ -4,7 +4,4 @@
          disable does not work unless this is true. -->
     <bool name="config_disableMenuKeyInLockScreen">true</bool>
 
-    <!-- Location services -->
-    <string name="config_networkLocationProviderPackageName">com.google.android.location</string>
-    <string name="config_geocodeProviderPackageName">com.google.android.location</string>
 </resources>
