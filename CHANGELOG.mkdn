@@ -1,4 +1,4 @@
-SuperTeam
+podxboq
 ===============
 
-Visit http://github.com/SuperTeam for full changelogs and git access.
+Visit http://github.com/podxboq for full changelogs and git access.

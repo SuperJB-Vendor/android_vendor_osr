@@ -50,17 +50,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/osr/prebuilt/common/bin/modelid_cfg.sh:system/bin/modelid_cfg.sh
 
-PRODUCT_COPY_FILES +=  \
-    vendor/osr/proprietary/Term.apk:system/app/Term.apk \
-    vendor/osr/proprietary/lib/armeabi/libjackpal-androidterm4.so:system/lib/libjackpal-androidterm4.so \
-    vendor/osr/prebuilt/common/apps/SuperSU.apk:system/app/SuperSU.apk \
-    vendor/osr/prebuilt/common/xbin/su:system/xbin/su
-
-# Bring in camera effects
-PRODUCT_COPY_FILES +=  \
-    vendor/osr/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
-    vendor/osr/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
-
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
