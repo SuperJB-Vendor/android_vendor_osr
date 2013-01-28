@@ -44,10 +44,6 @@ PRODUCT_COPY_FILES += \
     vendor/osr/prebuilt/common/bin/compcache:system/bin/compcache \
     vendor/osr/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache
 
-# Nam configuration script
-PRODUCT_COPY_FILES += \
-    vendor/osr/prebuilt/common/bin/modelid_cfg.sh:system/bin/modelid_cfg.sh
-
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml

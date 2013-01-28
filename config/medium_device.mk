@@ -45,11 +45,6 @@ PRODUCT_COPY_FILES += \
     vendor/osr/prebuilt/common/bin/compcache:system/bin/compcache \
     vendor/osr/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache
 
-# Terminal and Root files
-# Nam configuration script
-PRODUCT_COPY_FILES += \
-    vendor/osr/prebuilt/common/bin/modelid_cfg.sh:system/bin/modelid_cfg.sh
-
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
