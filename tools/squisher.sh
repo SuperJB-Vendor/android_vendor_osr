@@ -17,7 +17,6 @@ DELETE_BINS="applypatch applypatch_static check_prereq recovery updater"
 squash_opts="-force-uid 1000 -force-gid 1000 -no-progress -noappend -no-exports -no-recovery"
 REPACK=$OUT/repack.d
 REPACKOTA=$REPACK/ota
-updater=$REPACKOTA/META-INF/com/google/android/updater-script
 
 CORES=$( cat /proc/cpuinfo | grep -c processor )
 TOPDIR=`pwd`
@@ -43,13 +42,11 @@ clear
 msgInfo "Limpiando el entorno..."
 rm -rf $REPACK
 mkdir -p $REPACKOTA
-echo
 (
 cd $REPACKOTA
-printf "Copying files"
-echo " "
+msgInfo "Copiando ficheros"
 cp -rf $OUT/system $REPACKOTA
-cp $OUT/boot.img $REPACKOTA
+unzip -nq $OTAPACKAGE -d $REPACKOTA
 echo
 )
 
