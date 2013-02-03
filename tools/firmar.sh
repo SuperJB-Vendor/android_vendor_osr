@@ -14,38 +14,30 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+#
+# Firma ficheros para instalar en el dispositivo. 
+#
 
-#Colores
-YELLOW="\033[1;33m" #el primer número es 1 (negrita); después el color
-GREEN="\033[1;32m"
-RED="\033[1;31m"
-BLUE="\033[1;34m"
-WHITE="\033[1;37m"
-ENDCOLOR="\033[0m"
+SCRIPTDIR=`dirname $0`
+. $SCRIPTDIR/entorno.sh
 
-ECHO="echo -e"
+msgStatus "Firmando el fichero $1"
+	
+java -Xmx1000m \
+  -jar $ANDROID_BUILD_TOP/out/host/$OUT_TARGET_HOST/framework/signapk.jar \
+  -w $SECURITYDIR/testkey.x509.pem $SECURITYDIR/testkey.pk8 \
+  $1 $2
+if [ "$?" -ne 0 ]; then
+	msgErr "Error al firmar el fichero $1"
+	exit 1
+fi
 
-msgErr(){
-  $ECHO $RED"$1"$ENDCOLOR
-}
+# Crear md5 para el paquete firmado
 
-msgWarn(){
-  $ECHO $BLUE"$1"$ENDCOLOR
-}
+img=`basename $2`
+cd `dirname $2`
+md5sum $img > $img.md5sum
+msgOK "Paquete creado: $2"
+msgOK `cat $img.md5sum`
 
-msgOK(){
-  $ECHO $GREEN"$1"$ENDCOLOR
-}
-
-msgInfo(){
-  $ECHO $WHITE"$1"$ENDCOLOR
-}
-
-msgStatus(){
-  $ECHO $YELLOW"$1"$ENDCOLOR
-}
-
-msgList(){
-  $ECHO $YELLOW"$1: "$GREEN"$2"$ENDCOLOR
-}
-
+exit 0
