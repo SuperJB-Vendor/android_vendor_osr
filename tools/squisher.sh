@@ -8,8 +8,6 @@
 export VENDOR=vendor/osr
 MODS=$VENDOR/mods
 OTAPACKAGE=$OUT/$PRODUCT_ROM_FILE-ota.zip
-ROMPACKAGE=$OUT/$PRODUCT_ROM_FILE.zip
-
 OPTICHARGER=$ANDROID_BUILD_TOP/$VENDOR/tools/preopticharger.sh
 OPTICHARGER_FRAMEWORK=$ANDROID_BUILD_TOP/$VENDOR/tools/opticharger_framework
 QUIET=-q
@@ -76,22 +74,5 @@ rm -rf $REPACKOTA/recovery
 # Strip modulos
 [ -d $REPACKOTA/system/lib/modules ] && \
 	find $REPACKOTA/system/lib/modules -name "*.ko" -print0 | xargs -0 arm-eabi-strip --strip-unneeded
-
-cd $REPACKOTA
-
-if which 7za &>/dev/null
-then
-	msgStatus "Comprimiendo ROM usando 7za"
-	7za a -tzip -mx9 -mmt $REPACK/update.zip .
-else
-	msgStatus "Comprimiendo ROM usando zip"
-	zip $QUIET -ry -9 $REPACK/update.zip . 
-fi
-
-firmar.sh $REPACK/update.zip $ROMPACKAGE
-if [ "$?" -ne 0 ]; then
-	msgErr "Error al obtener el fichero firmado $ROMPACKAGE"
-	exit 1
-fi
 
 exit 0
