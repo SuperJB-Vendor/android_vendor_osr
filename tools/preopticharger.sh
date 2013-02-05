@@ -5,6 +5,7 @@
 # If we try to opticharge again the same apk (same md5) we use the same optimized apk from cache
 # Cache is held at $OUT/.opticharger
 
+exit 0
 OPTICHARGER=$ANDROID_BUILD_TOP/$VENDOR/tools/opticharger.sh
 
 OPTICACHE=$OUT/.opticharger
