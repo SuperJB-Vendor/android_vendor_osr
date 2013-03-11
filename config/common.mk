@@ -44,10 +44,6 @@ PRODUCT_COPY_FILES += \
     vendor/osr/prebuilt/common/bin/compcache:system/bin/compcache \
     vendor/osr/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache
 
-# Enable SIP+VoIP on all targets
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
-
 # Don't export PS1 in /system/etc/mkshrc.
 PRODUCT_COPY_FILES += \
     vendor/osr/prebuilt/common/etc/mkshrc:system/etc/mkshrc
@@ -59,17 +55,12 @@ include vendor/osr/config/themes_common.mk
 PRODUCT_PACKAGES += \
     Camera \
     ContactsWidgets \
-    Development \
     FileExplorer \
     LatinIME \
     Notes \
     ROMControl \
-    SoundRecorder2 \
-    SpareParts \
-    Wallpapers
-
-# Optional OSR packages
-PRODUCT_PACKAGES += \
+    Wallpapers \
+    LockClock \
     VideoEditor \
     VoiceDialer \
     SoundRecorder \
@@ -77,12 +68,9 @@ PRODUCT_PACKAGES += \
 
 # Custom C packages
 PRODUCT_PACKAGES += \
-    Trebuchet \
     DSPManager \
     libcyanogen-dsp \
-    audio_effects.conf \
-    Wallpapers \
-    Apollo
+    audio_effects.conf
 
 # Extra tools in OSR
 PRODUCT_PACKAGES += \
@@ -90,7 +78,12 @@ PRODUCT_PACKAGES += \
     e2fsck \
     mke2fs \
     tune2fs
-
+# ScreenSavers
+PRODUCT_PACKAGES += \
+	BasicDreams \
+	PhotoTable \
+	WebViewDream
+	
 # Openssh
 PRODUCT_PACKAGES += \
     scp \
@@ -105,7 +98,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     rsync
 
-PRODUCT_PACKAGE_OVERLAYS += vendor/osr/overlay/dictionaries
 PRODUCT_PACKAGE_OVERLAYS += vendor/osr/overlay/common
 
 PRODUCT_VERSION_MAINTENANCE = 0
