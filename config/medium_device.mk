@@ -86,13 +86,9 @@ PRODUCT_PACKAGES += \
     LatinIME \
     Notes \
     ROMControl \
-    SoundRecorder2 \
     SpareParts \
     Wallpapers \
-    DeskClock
-
-# Optional OSR packages
-PRODUCT_PACKAGES += \
+    DeskClock \
     VideoEditor \
     VoiceDialer \
     SoundRecorder \

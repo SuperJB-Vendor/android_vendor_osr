@@ -59,6 +59,7 @@ PRODUCT_PACKAGES += \
     LatinIME \
     Notes \
     ROMControl \
+    PerformanceControl \
     Wallpapers \
     LockClock \
     VideoEditor \
