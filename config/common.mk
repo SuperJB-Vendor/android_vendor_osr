@@ -62,13 +62,11 @@ PRODUCT_PACKAGES += \
     PerformanceControl \
     Wallpapers \
     LockClock \
+    DeskClock \
     VideoEditor \
     VoiceDialer \
     SoundRecorder \
-    Basic
-
-# Custom C packages
-PRODUCT_PACKAGES += \
+    Basic \
     DSPManager \
     libcyanogen-dsp \
     audio_effects.conf
@@ -79,6 +77,7 @@ PRODUCT_PACKAGES += \
     e2fsck \
     mke2fs \
     tune2fs
+    
 # ScreenSavers
 PRODUCT_PACKAGES += \
 	BasicDreams \
@@ -99,15 +98,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     rsync
 
+PRODUCT_PACKAGE_OVERLAYS += vendor/osr/overlay/dictionaries
 PRODUCT_PACKAGE_OVERLAYS += vendor/osr/overlay/common
-
-PRODUCT_VERSION_MAINTENANCE = 0
 
 TEAM_PRODUCT := SuperOSR
 TEAM_NAME := ST
 ANDROID_ALIAS_NAME := JB
 PRODUCT_VERSION_DEVICE_SPECIFIC := SuperOSR
-PRODUCT_VERSION_MAJOR := 2
 OSR_VERSION := $(shell date -u +%y%m.%d)
 
 PRODUCT_PROPERTY_OVERRIDES += \
