@@ -49,7 +49,7 @@ echo
 )
 
 # Copiado de archivos comunes
-[ -d $ANDROID_BUILD_TOP/$MODS/common/ ] && cp -rf $ANDROID_BUILD_TOP/$MODS/common/* $REPACKOTA/
+[ -d $ANDROID_BUILD_TOP/$MODS ] && cp -rf $ANDROID_BUILD_TOP/$MODS/* $REPACKOTA/
 
 #Ejecuta opticharger sobre el resto de apks de la rom
 cd $REPACKOTA/system/app
