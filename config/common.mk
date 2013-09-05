@@ -30,6 +30,7 @@ PRODUCT_PACKAGES += \
     PerformanceControl \
     Wallpapers \
     LockClock \
+    DashClock \
     DeskClock \
     VideoEditor \
     VoiceDialer \

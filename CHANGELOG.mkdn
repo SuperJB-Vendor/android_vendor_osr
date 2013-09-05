@@ -1,4 +1,14 @@
 podxboq
-===============
-
+=======
 Visit http://github.com/podxboq for full changelogs and git access.
+27/05/2013
+* Add DashClock
+05/05/2013
+* Fix error when switch toggle bluetooth. 
+02/05/2013
+* Update Clock app version to 4.2.2 
+* Replace LockClock by DeshClock.
+28/03/2013
+* New preference screen for battery options.
+24/03/2013
+* Move sound settings from ROMControl to system settings.
